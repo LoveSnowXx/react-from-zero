@@ -12,7 +12,7 @@ React 简单 (至少99% ES2015 ) 例子
 
 ## 校对中
 
-- [ ] [Lesson 0 - Object Elements](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/00-object-elements.html)
+- [x] [Lesson 0 - Object Elements](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/00-object-elements.html)
 - [ ] [Lesson 1 - Element Factory](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/01-element-factory.html)
 - [ ] [Lesson 2 - JSX](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/02-jsx.html)
 - [ ] [Lesson 3 - Nested Elements](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/03-nested-elements.html)
