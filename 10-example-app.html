@@ -13,6 +13,7 @@
 // An example of a simple React app
 // It uses simple component functions for its stateless components
 // and a complex component class to handle the interactions
+// 一个简单的例子`React`应用程序它为无状态组件使用简单的组件函数,并使用复杂的组件类来处理交互
 
 // First we have the Task and TaskList
 // They get all their data/state through their properties
@@ -20,15 +21,22 @@
 //   <Task text="Do something"/>
 //   <Task text="Do nothing"/>
 // </TaskList>
+// 首先我们有任务和任务列表他们通过他们的属性获得他们所有的数据/状态`<TaskList>`
+//   `<Task text="Do something"/>`
+//   `<Task text="Do nothing"/>`
+// `</TaskList>`
 
 // Task needs a text property
+// 任务需要一个文本属性
 function Task(props) {
   return <li>{props.text}</li>
 }
 
 // TaskList needs an array of Task in its children property
+// TaskList需要在其子属性中包含任务数组
 function TaskList(props) {
   // Print the first element bold
+  // 打印第一个粗体元素
   return (
     <ul>
       <b key={0}>{props.children[0]}</b>
@@ -38,6 +46,7 @@ function TaskList(props) {
 }
 
 // This component handles the input
+// 这个组件处理输入它需要是一个类,因为`<input>`元素是有状态的
 // It needs to be a class, because the <input> element is stateful
 var TaskInput = createReactClass({
 
@@ -46,22 +55,28 @@ var TaskInput = createReactClass({
   },
 
   // gets called when someone types into the <input> element
+// 当有人输入进来时被调用`<input>`元件
+  
   handleChange: function(e) {
     this.setState({value: e.target.value})
   },
 
   // gets called when someone clicks the <button> element
+// 当有人点击时会被调用`<button>`元件
   handleAdd: function(e) {
     if (!this.state.value) return
 
     // call the function that was added into its onAdd property
+// 调用添加到其onAdd属性中的函数
     this.props.onAdd(this.state.value)
 
     // clear the state so the input is empty again after an add
+// 请清除状态,以便在添加后再次输入为空
     this.setState({value: ""})
   },
 
   // renders the elements every time someone types or adds
+  // 每次有人输入或添加时呈现元素
   render: function() {
     return (
       <div>
@@ -80,6 +95,7 @@ var TaskInput = createReactClass({
 })
 
 // The app keeps track of the current tasks in its state
+// 该应用程序跟踪其状态中的当前任务
 var TodoApp = createReactClass({
 
   getInitialState: function() {
@@ -87,22 +103,27 @@ var TodoApp = createReactClass({
   },
 
   // this callback will be inserted into the onAdd property of the <TaskInput> component
+    // 这个回调会被插入到onAdd属性中`<TaskInput>`零件
   handleAdd: function(task) {
     // adding a new task
+    // 增加一项新任务
     var tasks = [task].concat(this.state.tasks)
 
     // this forces the <TodoApp> component to render
+      // 这迫使了`<TodoApp>`要渲染的组件
     this.setState({tasks: tasks})
   },
 
   render: function() {
     // create the list of <Task> components from the tasks array in the state
+      // 创建列表`<Task>`组件来自任务数组中的状态
     var taskElements = this.state.tasks.map(function(t, i) {
       return <Task key={i} text={t}/>
     })
 
     // some simple styling
     // and adding the add handler to the <TaskInput> component
+      // 一些简单的样式和添加处理程序的`<TaskInput>`零件
     return (
       <div style={{width: 300, margin: "auto"}}>
 
@@ -121,6 +142,7 @@ var TodoApp = createReactClass({
 var renderTarget = document.getElementById("app")
 
 // we can use components directly
+//我们可以直接使用组件
 ReactDOM.render(<TodoApp/>, renderTarget)
 
 </script>

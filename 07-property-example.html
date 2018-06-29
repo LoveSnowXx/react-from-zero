@@ -12,6 +12,7 @@
 <script type="text/babel">
 // Here's a more practical example of a component
 // it formats a date and returns a <span> containing that formatted string
+  // 这是一个更实用的组件格式化日期并返回一个例子`<span>`包含格式化的字符串
 function DateSpan(props) {
   var date = props.date,
     day = date.getDate(),
@@ -23,11 +24,13 @@ function DateSpan(props) {
 
 // Also a more sophisticated type check for the date property
 // The property is required, because there are no defaults set
+// 还有一个更复杂的日期属性类型检查该属性是必需的,因为没有设置默认值
 DateSpan.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
 }
 
 // We have to supply a date object and the component does the formatting
+// 我们必须提供一个日期对象,组件进行格式化
 var reactElement = <DateSpan date={new Date()}/>
 
 var renderTarget = document.getElementById("app")

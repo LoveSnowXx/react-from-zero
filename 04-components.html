@@ -12,8 +12,10 @@
 // The main selling point of React is its component system
 // components are used to encapsulate elements and their behaviour
 // see them as a mix of controller and view of MVC
+// 主要卖点之一`React`是它的组件系统组件被用来封装元素和它们的行为,将它们视为MVC的控制器和视图的混合
 
 // Here we use stand alone elements and some data
+// 这里我们使用独立元素和一些数据
 var data = "world"
 var reactElement =
   <div>
@@ -24,6 +26,7 @@ var reactElement =
 // Here the elements are encapsuled in a simple component function
 // They have to start with a capital letter and
 // return exactly ONE root element with or without nested elements (before React 16)
+// 这里的元素被封装在一个简单的组件函数中它们必须以大写字母开头,并返回恰好一个根元素 (带或不带嵌套元素)  (之前`React`16) 
 function MyComponent() {
   var data = "world"
   return (
@@ -39,6 +42,7 @@ function MyComponent() {
 // One caveat is that, similarly to what we do when rendering an array,
 // we have to add a unique key to each element in the array
 // (we'll see more on this in the next lesson)
+// 以来`React`16.0.0,组件也可以返回元素数组. 为此,不创建额外的包装器元素. 有一点需要注意的是,与我们在渲染数组时所做的相似,我们必须为数组中的每个元素添加一个唯一键 (在下一课中我们会看到更多内容) 
 function MyComponent() {
   var data = "world"
   return [
@@ -50,6 +54,7 @@ function MyComponent() {
 // Since React 16.2.0, we can use special "wrapper" components called fragments
 // that behave the same (no extra wrapper element created)
 // but remove the need to explitly set keys (fragments do this under the hood)
+// 以来`React`16.2.0,我们可以使用称为片段的特殊"包装器"组件,它们的行为相同 (不创建额外的包装器元素) ,但是不需要设置明确的键 (片段可以在引擎盖下进行) 
 function MyComponent() {
   var data = "world"
   return (
@@ -61,15 +66,19 @@ function MyComponent() {
 }
 
 // a component function can be used like an element
+// 一个组件函数可以像一个元素一样使用
 reactElement = <MyComponent/>
 
 // this translates to a React.createElement() call
 // the null indicates that no properties have been set
+// 这转化为a`React.createElement()`调用null表示没有设置属性
 reactElement = React.createElement(MyComponent, null)
 
 //  for reference a react-internal <div> tag
+  // 供参考`React`-内部`<div>`标签
 var anotherElement = <div/>
 // gets converted to
+// 被转换为
 anotherElement = React.createElement("div", null)
 
 var renderTarget = document.getElementById("app")

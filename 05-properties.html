@@ -10,6 +10,7 @@
 
 <script type="text/babel">
 // Components, like elements, can use properties, too
+// 组件与元素一样也可以使用属性
 function MyComponent(props) {
   return (
     <div className={props.className}>
@@ -22,6 +23,7 @@ function MyComponent(props) {
 var reactElement = <MyComponent className="abc" customData="world"/>
 
 // Which also works with an object and the spread (...) operator
+// 这也适用于对象和传播 (...) 运算符
 var props = {
   className: "abc",
   customData: "world",
@@ -30,9 +32,11 @@ var props = {
 reactElement = <MyComponent {...props}/>
 
 // This allows components with dynamic content
+// 这允许具有动态内容的组件
 var planets = ["earth", "mars", "venus"]
 
 // If an array is used as "child node" each child needs a unique key-property
+// 如果一个数组被用作"子节点",那么每个孩子都需要一个唯一的键属性
 var elements = planets.map(function(planet, index) {
   return <MyComponent className="myClass" customData={planet} key={index}/>
 })

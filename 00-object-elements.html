@@ -6,56 +6,76 @@
 <script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
 
 <div id="app">
-  <!--The render target of our React application-->
+  <!--我们 React 应用渲染的目标元素 id="app"-->
 </div>
 
 <script>
-  // React uses ES2015 Symbols to "tag" its element-objects.
-  // It uses a magic number as fallback on older browsers.
+  // `React`使用`ES2015`符号`"tag"`标签化它的元素对象. 
+  // It uses a magic number as fallback on older browsers. 它在旧版浏览器上使用 神奇的数 作为回退. 
   var magicValue = (Symbol && Symbol.for("react.element")) || 0xeac7
 
   // React uses virtual DOM elements, which become real DOM elements on a render.
   // A virtual DOM element can be defined as a simple object literal.
   // Normally you would use the React.createElement() to create an element.
   // This is what the return value of a React.createElement() call could look like.
+//  `React`使用虚拟`DOM`元素,这成为真实的`DOM`在渲染上的元素. 
+
+// 虚拟`DOM`元素可以被定义为一个简单的对象文字. 
+
+// 通常你会使用`React`. `createElement()`创建一个元素. 
+
+// 这就是a的返回值`React`. `createElement()`电话可能看起来像. 
   var reactElement = {
 
     // This special property will be checked by React to ensure this object
     // is a React element and not just some user data
     // React.createElement() sets it for you
+    // 这个特殊的财产将被检查`React`确保这个对象是一个`React`元素而不仅仅是一些用户数据`React.createElement()`为你设置
     $$typeof: magicValue,
 
     // This will also be checked by React. We will be talking about references
     // later, but if you're not using them, this has to be set to null and not
     // undefined
+
+// 这也将被检查`React`. 
+
+// 我们稍后将讨论引用,但如果您不使用它们,则必须将其设置为null,而不是未定义的
     ref: null,
 
     // This defines the HTML-tag
+// 这定义了HTML标签
+
     type: "h1",
 
     // This defines the properties that get passed down into the element
+    // 这定义了传递给元素的属性
     props: {
 
       // In this example there is just a single text node as child
+      // 在这个例子中,只有一个文本节点作为子节点
       children: "Hello, world!",
 
       // a CSS class
+      // a`CSS`类
       className: "abc",
 
       // styles can be passed as object literals
       // React uses camelCase instead of dashed-case (like CSS/D3 do)
+      // 样式可以作为对象文字传递`React`使用camelCase而不是虚线 (例如`CSS/D3`做) 
       style: {
         textAlign: "center",
       },
 
       // event handlers can be added as properties, too
       // React uses synthetic events, which basically try to normalize browser behaviour
+      // 事件处理程序也可以作为属性添加`React`使用综合事件,基本上试图规范化浏览器的行为
       onClick: function (notYourRegularEvent) { alert("click") },
     },
 
   }
 
   // another element that doesn"t have much configuration
+  // 另一个没有太多配置的元素
   var anotherElement = {
     $$typeof: magicValue,
     ref: null,
@@ -66,8 +86,10 @@
   }
 
   // React needs a DOM element as render target
+  // `React`需要一个`DOM`元素作为渲染目标
   var renderTarget = document.getElementById("app")
 
   // ReactDOM is responsible for inserting the element into the DOM
+  // `ReactDOM`OM负责将元素插入到DOM中
   ReactDOM.render(reactElement, renderTarget)
 </script>
