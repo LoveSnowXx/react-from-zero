@@ -6,6 +6,9 @@ React 简单 (至少99% ES2015 ) 例子
 
 [react from zero 原文-commit](https://github.com/kay-is/react-from-zero/tree/9295efa36c5be78b0e3767425afcf238290b9051)
 
+## 生活
+
+[help me live , live need money 💰](https://github.com/chinanf-boy/live-need-money)
 
 ## 校对中
 
@@ -87,3 +90,8 @@ React 简单 (至少99% ES2015 ) 例子
 
 [Lesson 16 - Advanced Integration](https://github.com/chinanf-boy/react-from-zero/blob/master/16-advanced-integration.html) -
 [预览](https://chinanf-boy.github.io/react-from-zero/16-advanced-integration.html)
+
+
+## More
+
+[更多中文翻译](https://github.com/chinanf-boy/chinese-translate-list)
