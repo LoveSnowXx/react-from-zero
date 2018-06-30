@@ -10,64 +10,55 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// Refactoring an element is a bit more tricky
-// First, casing of JSX determines whether a tag is an element or component
-// lower case means element
-// upper case means component
-// 重构一个元素有点棘手首先,`JSX`确定标签是否是元素或组件是小写的意思是元素的大写意味着组件
+// 重构一个元素有点棘手
+// 首先,`JSX`要明确标签 是否是元素或组件
+// 小写 的意思是元素
+// 大写 意味着组件
 
 var element = <div/>
-// becomes
 // 变
 element = React.createElement("div", null)
 
 try {
 
 var component = <Div/>
-// becomes
 // 变
 component = React.createElement(Div, null)
 
 } catch(e) {}
 
-// Second, React converts all events these elements trigger, to
-// synthetic events. This is often not a problem, they are simply events.
-// But you can't trigger your own.
-// So even if your <Input> component accepts an onClick callback as property
-// You can't call it with the same event as an <input> element would
-// 第二,`React`将这些元素触发的所有事件转换为合成事件. 这通常不是问题,它们仅仅是事件. 但你不能触发你自己的. 所以,即使你的`<Input>`组件接受一个`onClick`作为属性回调你不能用一个相同的事件来调用它`<input>`元素会
+// 第二,`React`将这些元素触发的所有事件转换为合成事件. 
+// 这通常不是问题,它们仅仅是事件. 但你不能触发你自己的. 
+// 所以,即使你的`<Input>`组件接受一个`onClick`回调作为属性
+// 你不能用一个相同的事件给`<input>`元素来调用它
 
 
-// One approach could be this.
-// We simply implement our own onChange caller
-// Here we create a number input that only calls onChange on number inputs
-// (non-numbers trigger an empty change)
-// 一种方法可能是这样的. 我们只是实现我们自己的`onChange`调用者在这里,我们创建一个只能调用的数字输入`onChange`在数字输入 (非数字触发一个空的变化)
+// 一种方法可能是这样的. 
+// 我们只是实现我们自己的`onChange`,
+// 我们创建一个只能 数字输入调用的 `NumberInput`
+// (非数字触发一个空的变化)
 var NumberInput = createReactClass({
 
   getInitialState: function() {
     return {value: ""}
   },
 
-  handleInput: function(e) {
+  handleInput: function(e) { // 自己的`onChange`
 
-    // we could try to modify the event to get our data in
-    // but this could mess things up
-    // instead we prevent this event from further actions
-    // 我们可以尝试修改事件来获取我们的数据,但这可能会让事情搞砸,而不是我们阻止此事件进一步采取行动
+    // 我们可以尝试修改事件来获取我们的数据,
+    // 但这可能会让事情搞砸,
+    // 重要的应该是我们 阻止此事件进一步采取行动
     e.preventDefault()
 
     var newNumber = e.target.value
 
-    // filter empty-changes
     // 过滤空白变化
     if (newNumber.length < 1 || newNumber === this.state.value) return
 
     this.setState({value: newNumber})
 
-    // then we extract our data and give it to onChange
-    // 然后我们提取我们的数据并提供给它`onChange`
-    this.props.onChange(newNumber)
+    // 然后我们提取我们的数据并提供给`onChange`
+    this.props.onChange(newNumber) // 来自 <NumberInput onChange={logChange}/> 的 logChange
 
   },
 
@@ -84,31 +75,28 @@ function logChange(v){
 }
 
 
-// Here we see, that the new NumberInput has a different interface
-// it's onChange property implies that events will be received, but this isn't
-// the case. Also, even if we would want to call it like the original input,
-// we would need to use upper case, and wouldn't win anything
-// 在这里我们看到,新的NumberInput具有不同的接口`onChange`财产意味着会收到事件,但事实并非如此. 另外,即使我们想把它称为原始输入,我们也需要使用大写字母,并且不会赢得任何东西
+// 在这里我们看到,新的 NumberInput 具有不同的接口
+// 它的 onChange 属性 似乎会收到事件,但事实并非如此. 
+// 即便我们想把它像 `html元素`原始输入一样 运行.
+// 我们还需要使用 大写字母,为了区分
 var reactElement = <div style={{width: 300, margin: "auto"}}>
 
   <h2>Logging number inputs</h2>
 
-  <h2>Before Refactor</h2>
+  <h2>Before 重构</h2>
   <input type="number" onChange={function(e) { logChange(e.target.value) }}/>
 
-  <h2>After Refactor</h2>
+  <h2>After 重构</h2>
   <NumberInput onChange={logChange}/>
 
 </div>
 
 ReactDOM.render(reactElement, document.getElementById("app"))
 
-// Other approaches include not using "default" prop names in the first place
-// onUpdate instead of onChange
-// It could also happen that a component uses onMouseDown to do something internal
-// and triggers an onChange, which could cause confusion
-// Often components deliver richer interactions than elements in the first place
-// so their prop methods can reflect that with the name
-// 其他方法包括不首先在onUpdate中使用"默认"prop属性名称`onChange`
-// 它也可能发生,一个组件使用onMouseDown做一些内部的事情并触发一个`onChange`,这可能会导致混淆通常组件比第一个元素提供更丰富的交互,所以它们的prop方法可以用名称来反映
+// 其他方法包括在第一个地方不使用 "默认"prop属性名称 
+// 比如`onUpdate`替换`onChange`
+// 它一个组件使用 `onMouseDown` 做一些内部的事情
+// 并触发一个`onChange`也可能发生, 当然这可能会导致混淆
+// 通常 组件 比 第一个元素`<div>`提供更丰富的交互,
+// 所以它们的 prop方法 可以用 名称 来反映
 </script>

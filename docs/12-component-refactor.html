@@ -11,14 +11,11 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// Refactoring is another thing that is nice with React
-// First we'll talk about refactoring one component into another
-// if you're lucky, you can just change the implementation of a component
-// and don't need to change anything at the call-site
-// 重构是另一件很好的事情`React`首先,我们将讨论如何将一个组件重构为另一个组件,您可以更改组件的实现,而无需在呼叫站点更改任何内容
+// 重构是另一件`React`很好的事情
+// 首先,我们将讨论如何将一个组件重构为另一个组件,
+// 如果好运的话,您可以更改组件的实现,而无需在 呼叫站点 更改任何内容
 
-// We start with a component that renders records somehow
-// 我们从一个以某种方式呈现记录的组件开始
+// 我们从一个以某种方式 渲染 rooms 记录 的组件开始
 function ViewBefore(props) {
   return (
     <table>
@@ -40,14 +37,12 @@ function ViewBefore(props) {
   )
 }
 
-// The component has a simple props-interface
 // 该组件有一个简单的`props`-接口
 ViewBefore.propTypes = {
   rooms: PropTypes.array.isRequired,
 }
 
-// Now we switch out the implementation with something more complicated
-// 现在我们用更复杂的东西来切换实现
+// 现在我们用更复杂的东西来实现
 function ViewAfter(props) {
   return (
     <div>
@@ -68,17 +63,14 @@ function ViewAfter(props) {
     </div>
   )
 }
-// We keep the props-interface the same
 // 我们保持`props`- 接口相同
 ViewAfter.propTypes = {
   rooms: PropTypes.array.isRequired,
 }
 
-// We could also switch it with something more dynamic
-// 我们也可以用更动态的东西切换它
+// 我们也可以用 更动态的东西 实现
 var ViewDynamic = createReactClass({
 
-  // We still keep the props-interface the same
   // 我们仍然保持着`props`- 接口相同
   propTypes: {
     rooms: PropTypes.array.isRequired,
@@ -116,7 +108,6 @@ var ViewDynamic = createReactClass({
 
 })
 
-// Some data
 // 一些数据
 var rooms = [
   {name:"Office", people: 10},
@@ -125,10 +116,8 @@ var rooms = [
   {name:"Bathroom", people: 0},
 ]
 
-// As we can see the components can be used exactly the same
-// If we copy the implementation of ViewAfter into ViewBefore,
-// everything keeps working
-// 正如我们所看到的,组件的使用方式完全相同如果我们将ViewAfter的实现复制到ViewBefore中,所有内容都可以继续工作
+// 正如我们所看到的,组件的使用方式完全相同
+// 如果我们将 ViewAfter的实现 复制到 ViewBefore 中,所有内容都可以继续工作
 var reactElement =
   <div style={{margin: "auto", width: 500}}>
 

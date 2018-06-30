@@ -23,9 +23,9 @@ React 简单 (至少99% ES2015 ) 例子
 - [x] [Lesson 8 - Nested Components](./docs/08-nested-components.html)
 - [x] [Lesson 9 - Component Classes](./docs/09-component-classes.html)
 - [x] [Lesson 10 - Example App](./docs/10-example-app.html)
-- [ ] [Lesson 11 - Lifecycle Methods](./docs/11-lifecycle-methods.html)
-- [ ] [Lesson 12 - Component refactor](./docs/12-component-refactor.html)
-- [ ] [Lesson 13 - Element Refactor](./docs/13-element-refactor.html)
+- [x] [Lesson 11 - Lifecycle Methods](./docs/11-lifecycle-methods.html)
+- [x] [Lesson 12 - Component refactor](./docs/12-component-refactor.html)
+- [x] [Lesson 13 - Element Refactor](./docs/13-element-refactor.html)
 - [ ] [Lesson 14 - References](./docs/14-references.html)
 - [ ] [Lesson 15 - Simple Integration](./docs/15-simple-integration.html)
 - [ ] [Lesson 16 - Advanced Integration](./docs/16-advanced-integration.html)
@@ -38,7 +38,7 @@ React 简单 (至少99% ES2015 ) 例子
 [Lesson 1 - Element Factory](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/01-element-factory.html) React元素-生产函数 `React.createElement` -
 [预览](https://chinanf-boy.github.io/react-from-zero/01-element-factory.html)
 
-[Lesson 2 - JSX](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/02-jsx.html) - JSX 写在`js`中的`HTMl`样式
+[Lesson 2 - JSX](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/02-jsx.html) - JSX 写在`js`中的`XHTMl`样式
 [预览](https://chinanf-boy.github.io/react-from-zero/02-jsx.html)
 
 [Lesson 3 - Nested Elements](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/03-nested-elements.html) -

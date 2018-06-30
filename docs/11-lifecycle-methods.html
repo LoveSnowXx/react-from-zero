@@ -10,19 +10,17 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// If we use component classes, our components inherit
-// a bunch of methods, which get called by React at specific
-// times to allow us to get more control over our components
-// a few of them we already met in lesson 9
-// Here are a few new ones. Not all of them, but the most important ones
-// 让我们对我们的组件有更多的控制,其中一些我们已经在第9课中遇到过. 这里有几个新组件. 不是全部,而是最重要的
+// 如果我们使用 组件类,我们的组件会继承
+// 一堆`React`在特定的时间调用的方法, 
+// 这些方法让我们对我们的组件有更多的控制,
+// 其中一些我们已经在 第9课 中遇到过. 
+// 下面有几个新组件. 并不是代表全部,但却是最重要的
 var TRANSLATION_FROM_SOMEWHERE = "Text from a synchronous source."
 
 var MyComponent = createReactClass({
-  // This method is for default prop values
-  // it gets called before the props are given to our component
-  // the "real" props override them if there are any
-  // 这个方法是在默认的prop值之前被调用的`props`给我们的组件"真实"`props`如果有的话,覆盖它们
+  // 这个默认的 prop 值的方法
+  // 是在`props`给我们的组件之前被调用的
+  // 如果有传递"真实"`props`下来,那么会覆盖默认
   getDefaultProps: function() {
     return {
       iGetOverriden: "default",
@@ -30,32 +28,28 @@ var MyComponent = createReactClass({
     }
   },
 
-  // This method is called before a component got mounted to the DOM
-  // it returns values that are used for this.state
-  // 这个方法在组件被装载到DOM之前被调用,它返回用于的值`this.state`
+  // 这个方法在 组件被 装载-mounted 到 DOM 之前 被调用,
+  // 它返回的值用于`this.state`
   getInitialState: function() {
     return {serverData: null}
   },
 
-  // This method gets called right before the component is mounted
-  // can be used to initialize some synchronous configuration, that should
-  // be available before the component renders
-  // 在装载组件之前调用此方法可用于初始化某些同步配置,该配置在组件呈现前应该可用
+  // 在装载组件之前调用此方法
+  // 可用于初始化某些同步配置,
+  // 该配置在组件渲染前,应该可用
   componentWillMount: function() {
     this.TEXT = TRANSLATION_FROM_SOMEWHERE
   },
 
-  // This method will be called right after the component got mounted
-  // it's a good place to start some asynchronous tasks.
-  // For example on the first mount it shows a loading message
-  // then componentDidMount is called and gets some server data.
-  // 这个方法在组件被挂载后立即调用,这是启动一些异步任务的好地方. 例如,在第一个mount上显示一个加载消息,然后调用componentDidMount并获取一些服务器数据.
+  // 这个方法在组件被挂载后 立即调用,
+  // 这是启动一些异步任务的好地方. 
+  // 例如,在第一个 mount 上显示一个加载消息,
+  // 然后调用 componentDidMount 并获取一些服务器数据.
   componentDidMount: function() {
 
     var component = this
 
-    // We clean up the data and get new from somewhere
-    // 我们清理数据并从某处获得新的信息
+    // 我们清理数据, 并从某处获得新的信息
     function loadData() {
 
       component.setState({serverData: null})
@@ -66,32 +60,27 @@ var MyComponent = createReactClass({
 
     }
 
-    // Initial data load
     // 初始数据加载
     loadData()
 
-    // We simulate a server request every 4 seconds
     // 我们每4秒模拟一次服务器请求
     this.updateInterval = setInterval(loadData, 4000)
 
   },
 
-  // This method will be called before the component gets removed from the DOM
-  // a bit like a destructor. Here we can do some cleanup.
-  // 这个方法在组件从析构函数中被移除之前被调用. 在这里,我们可以做一些清理.
+  // 这个方法在组件被移除之前被调用. 有点像自毁
+  // 在这里,我们可以做一些清理.
   componentWillUnmount: function() {
 
     clearInterval(this.updateInterval)
 
   },
 
-  // This method is called before a render when new props or state is available
-  // it won"t be called on the first render or if this.forceUpdate() is used
-  // it can be used if some state or prop changes don"t require a rerender
-  // 新方法在渲染之前调用此方法`props`或状态是可用的,它不会在第一个渲染或如果调用`this.forceUpdate()`如果某些状态或道具变化不需要重投,可以使用它
+  // 这个方法在渲染之前 `props`或状态是可用的时 调用,
+  // 它不会在第一个渲染 或 `this.forceUpdate()`调用时使用
+  // 如果某些 状态 或 props 变化后,不需要重新渲染,可以使用它做些条件返回
   shouldComponentUpdate: function(nextProps, nextState) {
 
-    // we want to render on every change, this is the default behaviour
     // 我们想要在每次更改时渲染,这是默认行为
     return true
 
