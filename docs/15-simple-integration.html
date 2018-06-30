@@ -7,30 +7,25 @@
 <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
 
 <script src="https://unpkg.com/moment@2.18.1/min/moment.min.js">
-// Most of the time we have to use third party libraries
-// in our applications. Here we integrate a simple one
-// for date handling and use it with React. It doesn"t
-// use the DOM so it can be integrated fairly easy.
-// 大多数情况下,我们必须在应用程序中使用第三方库. 在这里,我们整合了一个简单的日期处理和使用它`React`. 它不使用`DOM`所以它可以很容易地集成.
+// 大多数情况下,我们必须在应用程序中使用第三方库. 
+// 在这里,我们整合了一个简单的日期处理和在`React`中使用它. 
+// 它不使用`DOM`, 所以它可以很容易地集成.
 </script>
 
 <div id="app"></div>
 
 <script type="text/babel">
-// Simple libraries that are called synchronous can used
-// directly in JSX with the help of {}, since they are
-// just function calls
-// 被称为同步的简单库可以直接用于`JSX`在...的帮助下`{}`,因为它们只是函数调用
+// 在`{}`的帮助下, 同步的简单库 可以直接用于`JSX`,
+// 因为它们只是函数调用
 var DateToday = function() {
   return <span>{moment().format("DD.MM.YYYY")}</span>
 }
 
 var tomorrow = moment().add(1, "day")
 
-// Nothing exciting happening here, just calling the library
-// and displaying its return values. First with some
-// elements, then used inside of a component.
-// 没有什么令人兴奋的事情发生在这里,只是调用库并显示其返回值. 首先使用一些元素,然后在组件内部使用.
+// 在这里没有发生什么令人兴奋的事情,
+// 只是调用库并显示其返回值. 
+// 首先使用一些元素,然后在组件内部使用.
 var reactElement =
   <div>
     <h1 style={{textAlign:"center"}}>

@@ -10,16 +10,13 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// Sometimes we need some state from an element or a component
-// or it has to be directly modified somehow. For
-// this case, we can tell React to create references.
-// 有时我们需要某个元素或某个组件的状态,或者必须以某种方式直接进行修改. 对于这种情况,我们可以告诉`React`创建参考.
+// 有时我们需要 某个元素或某个组件 的状态,
+// 或者必须以某种方式直接进行修改. 
+// 对于这种情况,我们可以告诉`React`创建引用-ref.
 var RefComponent = createReactClass({
 
-  // First we tell React to render an input with a
-  // ref callback, it will be called, when the DOM of the input element
-  // is available
-  // 首先我们告诉`React`使用ref回调来呈现输入时,将会调用它`DOM`的输入元素是可用的
+  // 首先我们告诉`React`在渲染输入时使用 ref 回调,
+  // 当`DOM`的输入元素是可用时, 将会调用它, 保存
   render: function() {
     return (
       <div>
@@ -29,31 +26,26 @@ var RefComponent = createReactClass({
     )
   },
 
-  // This callback is called when the input element was mounted into the DOM
-  // and again, with null, when it was unmounted again
-  // For elements the rendered DOM node will be stored
-  // For components the instance of the component will be stored.
-  // 当input元素被装载到DOM中时调用此回调函数,并且当它再次被卸载时再次调用null. 对于呈现元素`DOM`节点将被存储对于组件,组件的实例将被存储.
+  // 当input元素被装载到DOM中时 调用此回调函数,
+  // 当然它再次被卸载时, 也会回到 null. 
+  // 对于元素,渲染`DOM`节点 将被存储
+  // 对于组件,组件的实例 将被存储.
   handleRef(nameInput) {
-    // We save a reference to it for later use.
     // 我们保存对其的引用以备后用.
     this.nameInput = nameInput
   },
 
-  // This callback is called when the button is clicked
-  // and uses this.nameInput to read out the value of the input.
-  // 此按钮被单击并使用时调用此回调`this.nameInput`读出输入的值.
+  // 此按钮被单击时
+  // 调用此回调读出`this.nameInput`输入的值.
   handleClick: function() {
     console.log(this.nameInput.value)
   },
 
 })
 
-// Since references are local to their component
-// they can be used as local IDs to get elements
-// and don't override each other when another
-// instance of the component is created
-// 由于引用对其组件是局部的,因此它们可以用作本地ID来获取元素,并且在创建组件的另一个实例时不会相互覆盖
+// 由于 引用 对 其组件是局部变量,
+// 因此它们可以用作 本地ID「this.nameInput」 来获取元素,
+// 并且在创建另一个组件实例时也不会相互覆盖
 var reactElement =
   <div>
     <RefComponent/>

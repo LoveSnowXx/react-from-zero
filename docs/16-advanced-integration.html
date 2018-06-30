@@ -9,71 +9,56 @@
 <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
 
 <script src="https://unpkg.com/d3@4.7.3/build/d3.min.js">
-// Sometimes we need to integrate more complex
-// libraries. Libraries that want to use the
-// DOM directly or require asynchronous interaction.
-// In this example we use D3.js, a free InfoVis library.
-// 有时我们需要整合更复杂的库. 希望直接使用DOM或需要异步交互的库. 在这个例子中,我们使用了一个免费的InfoVis库D3.js.
+// 有时我们需要整合更复杂的库. 
+// 那些库会 直接使用DOM 或 需要异步交互. 
+// 在这个例子中,我们使用了一个免费的 InfoVis 库 => D3.js.
 </script>
 
 <div id="app"></div>
 
 <script type="text/babel">
-// Since D3 needs to interact directly with the DOM we
-// should use a component class, because it can store
-// references to its DOM-elements.
-// 由于D3需要直接与之交互`DOM`我们应该使用一个组件类,因为它可以存储对它的引用`DOM-elements`.
+// 由于 D3 需要 直接与`DOM`交互,
+// 我们应该使用一个组件类,
+// 因为它可以 存储对它自身的`DOM-elements`的 引用-ref.
 var Visual = createReactClass({
 
-  // We simply render an empty canvas and tell React to
-  // store its reference after the render
-  // 我们只是渲染一个空的画布并告诉`React`在渲染之后存储其引用
+  // 我们只是渲染一个空的 画布-canvas ,
+  // 并告诉`React`在渲染之后 存储其引用
   render: function() {
     return <canvas ref={this.handleRef} width={500} height={500}/>
   },
 
   handleRef: function(canvas) {
-    this.canvas = canvas
+    this.canvas = canvas // 存储 ref
   },
 
-  // After the first render, we grab the reference
-  // to the canvas element in the DOM and pass it
-  // to the library
-  // 在第一次渲染之后,我们获取对canvas元素的引用`DOM`并将其传递给库在这里,我们也使用一些额外的颜色配置
+  // 在第一次渲染之后,我们获取对 canvas-`DOM`元素 的引用,
+  // 并在这里将其传递给 D3库 ,
   componentDidMount: function() {
-    // Here we also use some additional color configuration
-    // 我们对重新渲染也有一些细粒度的控制. 使用这种lifecylce方法
+  // 我们也使用一些额外的颜色配置
     drawGraph(this.canvas, this.props.color)
   },
 
-  // We also have some fine-granular control over the re-render
-  // With the use of this lifecylce method
-  // 在这里,我们可以告诉我们的图书馆的新数据`props`或状态,所以它可以更新`DOM`元素本身
+  // 我们对重新渲染也有一些细粒度的控制. 使用这个 lifecylce 方法
   shouldComponentUpdate: function(nextProps, nextState) {
-    // Here we could tell our library the new data for props
-    // or state, so it can update the DOM elements on its own
-    // 最后,我们总是返回false,所以我们的render方法没有被调用,canvas元素也没有被替换
+    // 在这里,我们可以告诉我们的库 新数据`props`或状态,
+    // 这样它就可以更新`DOM`元素本身
 
-    // At the end we always return false so our render method
-    // isn't called and the canvas element isn't replaced
+    // 最后,我们总是返回false,
+    // 所以我们的 render方法 没有被调用, canvas元素也没有被替换
     return false
   },
 
-  // This lifecycle method can be used to free resources
-  // before the component will be removed from the DOM.
-  // Our canvas will be removed for sure, but often there
-  // is state for the library, other objects, listeners etc.
-  // they could be stored on the component and should be
-  // deleted to prevent memory leaks
-  // 在从DOM中删除组件之前,可以使用此生命周期方法来释放资源. 我们的画布肯定会被移除,但是对于图书馆,其他对象,听众等来说通常会有状态,他们可以存储在组件上,并且应该被删除以防止内存泄漏
+  // 在 从 DOM 中删除组件 之前,可以使用此生命周期方法来释放资源. 
+  // 我们的画布肯定会被移除,但是对于库来说,
+  // 其他对象,监听事件之类的,通常会有状态,
+  // 他们可以存储在组件上,也可以被删除以防止内存泄漏
   componentWillUnmount() {},
 
 })
 
-// Now we can use the library as a component
-// No need for global IDs, every instance has its own canvas
-// reference stored, also its own color property
-// 现在我们可以使用该库作为组件不需要全局ID,每个实例都有自己的画布引用存储,也有它自己的颜色属性
+// 现在我们可以使用该D3库做成的组件
+// 不需要全局ID,每个实例都有自己的画布引用存储,也有它自己的颜色属性
 var reactElement =
   <div>
     <Visual color="#f00"/>
@@ -83,14 +68,11 @@ var reactElement =
 
 ReactDOM.render(reactElement, document.getElementById("app"))
 
-// Wrapping the library interaction into a function
-// 将图书馆交互包装成一个功能
+// 将 D3库交互 包装成一个函数
 function drawGraph(canvas, strokeColor) {
 
-  // An example from http://bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611
-  // its realeased under the GPL-V3
-
-// 来自一个例子`h`TTP: //bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611`its realeased under the`GPL-V3\`
+  // 来自http://bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611 的 一个例子
+  // GPL-V3协议
   var n = 20
 
   var nodes = d3.range(n * n).map(function(i) {

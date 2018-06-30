@@ -10,25 +10,9 @@ React 简单 (至少99% ES2015 ) 例子
 
 [help me live , live need money 💰](https://github.com/chinanf-boy/live-need-money)
 
-## 校对中
+## 校对✅完成
 
-- [x] [Lesson 0 - Object Elements](./docs/00-object-elements.html)
-- [x] [Lesson 1 - Element Factory](./docs/01-element-factory.html)
-- [x] [Lesson 2 - JSX](./docs/02-jsx.html)
-- [x] [Lesson 3 - Nested Elements](./docs/03-nested-elements.html)
-- [x] [Lesson 4 - Components](./docs/04-components.html)
-- [x] [Lesson 5 - Properties](./docs/05-properties.html)
-- [x] [Lesson 6 - Property Types](./docs/06-property-types.html)
-- [x] [Lesson 7 - Property Example](./docs/07-property-example.html)
-- [x] [Lesson 8 - Nested Components](./docs/08-nested-components.html)
-- [x] [Lesson 9 - Component Classes](./docs/09-component-classes.html)
-- [x] [Lesson 10 - Example App](./docs/10-example-app.html)
-- [x] [Lesson 11 - Lifecycle Methods](./docs/11-lifecycle-methods.html)
-- [x] [Lesson 12 - Component refactor](./docs/12-component-refactor.html)
-- [x] [Lesson 13 - Element Refactor](./docs/13-element-refactor.html)
-- [ ] [Lesson 14 - References](./docs/14-references.html)
-- [ ] [Lesson 15 - Simple Integration](./docs/15-simple-integration.html)
-- [ ] [Lesson 16 - Advanced Integration](./docs/16-advanced-integration.html)
+2018 ⏰ 6.30
 
 ## 课堂
 
