@@ -8,13 +8,12 @@
 <div id="app"></div>
 
 <script>
-  // React.createElement() needs type, properties, children.
-  // This is less verbose than using plain object literals,
-  // it hides the $$type/Symbol and ref mentioned in lesson 0
-  //`React.createElement()`需要类型,属性,孩子. 这比使用普通对象文字的冗长,它隐藏了第0课中提到的$$ type / Symbol和ref
-  var reactElement = React.createElement("h1", {
+  //`React.createElement()`需要 类型-type, 属性-props, 孩子-children. 这比使用普通对象文字的冗长
+  // 它隐藏了第0课中提到的 $$type/Symbol 和 ref
+  var reactElement = React.createElement("h1", // type
+  { // props
 
-    className: "abc",
+    className: "abc", 
 
     style: {
       textAlign: "center",
@@ -22,11 +21,9 @@
 
     onClick: function () { alert("click") },
 
-  }, "Hello, world!")
+  }, "Hello, world!") // children
 
-
-  // The second argument is the property object and has to be null if empty
-  // 第二个参数是属性对象,如果为空,则必须为null
+  // 第二个参数是 属性-props 对象 ,如果为空,则必须为null
   var anotherElement = React.createElement("p", null, "A nice text paragraph.")
 
   var renderTarget = document.getElementById("app")
