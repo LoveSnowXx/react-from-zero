@@ -9,30 +9,27 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// Elements can be nested, which will result in nested React.createElement calls
-// As you can imagine, writing this without JSX would be pretty tedious
-// 元素可以嵌套,这将导致嵌套`React.createElement()`reateElement调用正如你可以想象的那样,不需要写这个`JSX`会很乏味
+
+// 元素可以嵌套, 这将导致`React.createElement()`嵌套调用
+// 正如你可以想象的那样,不用`JSX`写这些嵌套会很乏味/繁琐
 var reactElement =
   <div className="abc">
-    <h1>Hello</h1>
+    <h1>Hello</h1> 
     <h2>world</h2>
   </div>
 
-// they can also, like mentioned in lesson 2, contain JavaScript in {}
-// 他们也可以像第2课中提到的那样包含`JavaScript`在`{}`
+// 他们也可以像 第 2 课中, 提到的那样包含`JavaScript`在`{}`
 var myClass = "abc"
 
 function myText() { return "world" }
 
-// JavaScript insertion has the same syntax in attributes as in normal text or elements
-// `JavaScript`插入在属性中的语法与在普通文本或元素中的语法相同
+// `JavaScript`插入在属性中的语法, 与在 普通文本或元素 中的语法相同
 reactElement =
   <div className={myClass}>
     <h1>Hello {10 * 10}</h1>
     <h2>{myText()}</h2>
   </div>
 
-// this JavaScript can contain elements too
 // 这个`JavaScript`也可以包含元素,
 var nestedElement = <h2>world</h2>
 
@@ -42,8 +39,7 @@ reactElement =
     {nestedElement}
   </div>
 
-// it is also possible to "spread" an object as properties
-// 也可以将对象"散布"为属性
+// 也可以将对象, "散布{...}" 为属性
 var properties = {
   className: "abc",
   onClick: function() { alert("click") },
