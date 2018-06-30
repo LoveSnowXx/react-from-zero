@@ -18,7 +18,7 @@ React 简单 (至少99% ES2015 ) 例子
 - [x] [Lesson 3 - Nested Elements](./docs/03-nested-elements.html)
 - [x] [Lesson 4 - Components](./docs/04-components.html)
 - [x] [Lesson 5 - Properties](./docs/05-properties.html)
-- [ ] [Lesson 6 - Property Types](./docs/06-property-types.html)
+- [x] [Lesson 6 - Property Types](./docs/06-property-types.html)
 - [ ] [Lesson 7 - Property Example](./docs/07-property-example.html)
 - [ ] [Lesson 8 - Nested Components](./docs/08-nested-components.html)
 - [ ] [Lesson 9 - Component Classes](./docs/09-component-classes.html)
