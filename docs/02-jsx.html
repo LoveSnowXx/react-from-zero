@@ -6,11 +6,10 @@
 <script src="https://cdn.bootcss.com/react-dom/16.4.0-alpha.0911da3/umd/react-dom.development.js"></script>
 
 <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js">
-// Now we will use JSX, which needs to be converted to JavaScript.
-// For this we will use Babel. Babel is normally used to convert ES2015 to ES5, but
-// it also can convert JSX to ES5. Babels browser version uses text/babel script tags.
-// 现在我们将使用`JSX`,这需要转换为`JavaScript`. 为此我们将使用`Babel`. `Babel`通常用于转换`ES2015`至`ES5`,但它也可以转换`JSX`至`ES5`. `Babel`浏览器版本使用文本/ babel脚本标签. 
 
+// 现在我们将使用`JSX`,这需要转换为`JavaScript`. 
+// 为此我们将使用`Babel`. `Babel`通常用于转换`ES2015`至`ES5`,
+// 但它也可以转换`JSX`至`ES5`. `Babel`浏览器版本使用 `text/babel` `<script>` 标签. 
 </script>
 
 <div id="app"></div>
@@ -19,7 +18,9 @@
 // JSX is the idiomatic way of creating elements.
 // It's basically XHTML with {} for dynamic content
 // also class has to be called className
-// `JSX`是创造元素的惯用方式. 基本上是这样`XHTML`同`{}`对于动态内容,也必须将class称为className
+// `JSX`是创造元素的惯用方式. 
+// 基本上是这样`XHTML`夹杂`{}`, 这样带入`动态内容/js`,
+// 还有将 `class` 改称为 `className`
 var reactElement =
   <h1
     className="abc"
@@ -28,9 +29,7 @@ var reactElement =
     Hello, world!
   </h1>
 
-// Is the same as
 // 是相同的
-
 reactElement =
   React.createElement(
     "h1",
@@ -40,13 +39,12 @@ reactElement =
   )
 
 // JSX shines especially with simple elements that make up the majority
-// `JSX`特别是构成大多数的简单元素尤其闪耀
+// `JSX`特别是构成大多数的简单元素, 所以尤为闪耀简单
 var anotherElement = <p>A nice text paragraph.</p>
-// Is the same as
+
 // 是相同的
 anotherElement = React.createElement("p", null, "A nice text paragraph.")
 
-// As we can see, everything else works as before
 // 正如我们所看到的,其他一切和以前一样
 var renderTarget = document.getElementById("app")
 
