@@ -16,7 +16,7 @@ React 简单 (至少99% ES2015 ) 例子
 - [x] [Lesson 1 - Element Factory](./docs/01-element-factory.html)
 - [x] [Lesson 2 - JSX](./docs/02-jsx.html)
 - [x] [Lesson 3 - Nested Elements](./docs/03-nested-elements.html)
-- [ ] [Lesson 4 - Components](./docs/04-components.html)
+- [x] [Lesson 4 - Components](./docs/04-components.html)
 - [ ] [Lesson 5 - Properties](./docs/05-properties.html)
 - [ ] [Lesson 6 - Property Types](./docs/06-property-types.html)
 - [ ] [Lesson 7 - Property Example](./docs/07-property-example.html)
