@@ -10,32 +10,25 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// An example of a simple React app
-// It uses simple component functions for its stateless components
-// and a complex component class to handle the interactions
-// 一个简单的例子`React`应用程序它为无状态组件使用简单的组件函数,并使用复杂的组件类来处理交互
+// 一个简单`React`应用程序的例子
+// 一个无状态组件的简单组件函数,
+// 和一个使用 复杂的组件类 来处理交互
 
-// First we have the Task and TaskList
-// They get all their data/state through their properties
+
+// 首先我们有 Task 和 TaskList
+// 他们通过 他们的属性-props 获得他们所有的 数据-data/状态-state 
 // <TaskList>
 //   <Task text="Do something"/>
 //   <Task text="Do nothing"/>
 // </TaskList>
-// 首先我们有任务和任务列表他们通过他们的属性获得他们所有的数据/状态`<TaskList>`
-//   `<Task text="Do something"/>`
-//   `<Task text="Do nothing"/>`
-// `</TaskList>`
 
-// Task needs a text property
-// 任务需要一个文本属性
+//  Task 需要一个 文本属性
 function Task(props) {
   return <li>{props.text}</li>
 }
 
-// TaskList needs an array of Task in its children property
-// TaskList需要在其子属性中包含任务数组
+// TaskList 需要在其 子属性 中包含 Task 数组
 function TaskList(props) {
-  // Print the first element bold
   // 打印第一个粗体元素
   return (
     <ul>
@@ -45,38 +38,31 @@ function TaskList(props) {
   )
 }
 
-// This component handles the input
-// 这个组件处理输入它需要是一个类,因为`<input>`元素是有状态的
-// It needs to be a class, because the <input> element is stateful
+// 这个组件处理输入
+// 它需要是一个类,因为`<input>`元素是有状态的
 var TaskInput = createReactClass({
 
   getInitialState: function() {
     return {value: ""}
   },
 
-  // gets called when someone types into the <input> element
-// 当有人输入进来时被调用`<input>`元件
-  
+  // 当有人在`<input>`元素输入时, 被调用
   handleChange: function(e) {
     this.setState({value: e.target.value})
   },
 
-  // gets called when someone clicks the <button> element
-// 当有人点击时会被调用`<button>`元件
+  // 当有人在`<button>`元素点击时, 被调用
   handleAdd: function(e) {
     if (!this.state.value) return
 
-    // call the function that was added into its onAdd property
-// 调用添加到其onAdd属性中的函数
+    // 调用添加到其 onAdd 属性, props.onAdd 函数,
     this.props.onAdd(this.state.value)
 
-    // clear the state so the input is empty again after an add
-// 请清除状态,以便在添加后再次输入为空
+    // 清除状态,以便在添加后, 输入再次为空
     this.setState({value: ""})
   },
 
-  // renders the elements every time someone types or adds
-  // 每次有人输入或添加时呈现元素
+  // 每次有人 输入或添加 时渲染元素
   render: function() {
     return (
       <div>
@@ -94,36 +80,31 @@ var TaskInput = createReactClass({
 
 })
 
-// The app keeps track of the current tasks in its state
-// 该应用程序跟踪其状态中的当前任务
+// 该应用程序跟踪其当前 Task 状态
 var TodoApp = createReactClass({
 
   getInitialState: function() {
     return {tasks: []}
   },
 
-  // this callback will be inserted into the onAdd property of the <TaskInput> component
-    // 这个回调会被插入到onAdd属性中`<TaskInput>`零件
+    // 这个回调会被插入到`<TaskInput>`组件的 onAdd 属性「props.onAdd」中
   handleAdd: function(task) {
-    // adding a new task
-    // 增加一项新任务
+    // 增加一项新 Task 
     var tasks = [task].concat(this.state.tasks)
 
-    // this forces the <TodoApp> component to render
-      // 这迫使了`<TodoApp>`要渲染的组件
+    // 这迫使了`<TodoApp>`渲染组件
     this.setState({tasks: tasks})
   },
 
   render: function() {
     // create the list of <Task> components from the tasks array in the state
-      // 创建列表`<Task>`组件来自任务数组中的状态
+      // 创建来自 state.tasks 数组中的 的`<Task>`列表组件
     var taskElements = this.state.tasks.map(function(t, i) {
       return <Task key={i} text={t}/>
     })
 
-    // some simple styling
-    // and adding the add handler to the <TaskInput> component
-      // 一些简单的样式和添加处理程序的`<TaskInput>`零件
+    // 一些简单的样式和
+    // 添加 处理程序-`this.handleAdd` 到`<TaskInput>`组件
     return (
       <div style={{width: 300, margin: "auto"}}>
 
@@ -141,7 +122,6 @@ var TodoApp = createReactClass({
 
 var renderTarget = document.getElementById("app")
 
-// we can use components directly
 //我们可以直接使用组件
 ReactDOM.render(<TodoApp/>, renderTarget)
 
