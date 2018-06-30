@@ -30,14 +30,6 @@ React 简单 (至少99% ES2015 ) 例子
 - [ ] [Lesson 15 - Simple Integration](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/15-simple-integration.html)
 - [ ] [Lesson 16 - Advanced Integration](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/16-advanced-integration.html)
 
-
-## 两种
-
-> 原作者把解释放在 `html` 中, 而我比较喜欢`md`文档的样式
-
-- [原作者方式](#课堂)
-- [md方式](./explain.md)
-
 ## 课堂
 
 [Lesson 0 - Object Elements](https://github.com/chinanf-boy/react-from-zero/blob/master/docs/00-object-elements.html) -
