@@ -4,7 +4,7 @@ React 简单 (至少99% ES2015 ) 例子
 
 一切都在浏览器中运行，无需手动预编译。
 
-[react from zero 原文-commit](https://github.com/kay-is/react-from-zero/tree/9295efa36c5be78b0e3767425afcf238290b9051)
+[react from zero 原文-commit ⏰ 2018 6.30](https://github.com/kay-is/react-from-zero/tree/b31878c2c1ba423fede7542c473092bba5943dfa)
 
 ## 生活
 
