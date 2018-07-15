@@ -1,4 +1,9 @@
-# React From Zero
+# React From Zero [![explain]][source] [![translate-svg]][translate-list]
+
+[explain]: http://llever.com/explain.svg
+[source]: https://github.com/chinanf-boy/Source-Explain
+[translate-svg]: http://llever.com/translate.svg
+[translate-list]: https://github.com/chinanf-boy/chinese-translate-list
 
 React 简单 (至少99% ES2015 ) 例子
 
