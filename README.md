@@ -9,15 +9,23 @@ React 简单 (至少99% ES2015 ) 例子
 
 一切都在浏览器中运行，无需手动预编译。
 
-[react from zero 原文-commit ⏰ 2018 6.30](https://github.com/kay-is/react-from-zero/tree/b31878c2c1ba423fede7542c473092bba5943dfa)
+## 校对 ✅
+
+<!-- doc-templite START generated -->
+<!-- time = '2018 6.30' -->
+
+翻译的原文 | 与日期 | 最新更新 | 更多
+---|---|---|---
+[commit] | ⏰ 2018 6.30 | ![last] | [more]
+<!-- doc-templite END generated -->
+
+[last]: https://img.shields.io/github/last-commit/chinanf-boy/react-from-zero.svg
+[commit]: https://github.com/kay-is/react-from-zero/tree/b31878c2c1ba423fede7542c473092bba5943dfa
+[more]: https://github.com/chinanf-boy/chinese-translate-list
 
 ## 生活
 
 [help me live , live need money 💰](https://github.com/chinanf-boy/live-need-money)
-
-## 校对✅完成
-
-2018 ⏰ 6.30
 
 ## 课堂
 
