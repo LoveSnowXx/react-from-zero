@@ -16,7 +16,7 @@ React 简单 (至少99% ES2015 ) 例子
 
 翻译的原文 | 与日期 | 最新更新 | 更多
 ---|---|---|---
-[commit] | ⏰ 2018 6.30 | ![last] | [more]
+[commit] | ⏰ 2018 6.30 | ![last] | [中文翻译][more]
 <!-- doc-templite END generated -->
 
 [last]: https://img.shields.io/github/last-commit/chinanf-boy/react-from-zero.svg
