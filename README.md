@@ -13,15 +13,21 @@ React 简单 (至少99% ES2015 ) 例子
 
 <!-- doc-templite START generated -->
 <!-- time = '2018 6.30' -->
-
+<!-- repo = 'kay-is/react-from-zero' -->
+<!-- commit = 'b31878c2c1ba423fede7542c473092bba5943dfa' -->
 翻译的原文 | 与日期 | 最新更新 | 更多
 ---|---|---|---
-[commit] | ⏰ 2018 6.30 | ![last] | [中文翻译][more]
+[commit] | ⏰ 2018 6.30 | ![last] | [中文翻译][translate-list]
+
+[last]: https://img.shields.io/github/last-commit/kay-is/react-from-zero.svg
+[commit]: https://github.com/kay-is/react-from-zero/tree/b31878c2c1ba423fede7542c473092bba5943dfa
+
 <!-- doc-templite END generated -->
 
-[last]: https://img.shields.io/github/last-commit/chinanf-boy/react-from-zero.svg
-[commit]: https://github.com/kay-is/react-from-zero/tree/b31878c2c1ba423fede7542c473092bba5943dfa
-[more]: https://github.com/chinanf-boy/chinese-translate-list
+### 贡献
+
+欢迎 👏 勘误/校对/更新贡献 😊 [具体贡献请看](https://github.com/chinanf-boy/chinese-translate-list#贡献)
+
 
 ## 生活
 
